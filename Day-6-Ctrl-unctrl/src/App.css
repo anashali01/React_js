@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Page center */
+.form-wrapper,
+.data-wrapper {
+  min-height: 100vh;
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card */
+.form-card {
+  background: #020617;
+  width: 360px;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Title */
+.form-card h2 {
+  color: #f8fafc;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Input group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  font-size: 13px;
+  color: #cbd5f5;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Button */
+.form-card button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #38bdf8;
+  color: #020617;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-card button:hover {
+  background: #0ea5e9;
+}
+
+/* Wrapper */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+/* Table */
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #17191f;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Head */
+.modern-table thead {
+  background: #020617;
+  color: white;
+}
+
+.modern-table th {
+  padding: 14px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #f8fafc;
+  text-transform: uppercase;
+}
+
+/* Body */
+.modern-table td {
+  padding: 14px;
+  font-size: 14px;
+  color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+
+
+/* Remove last border */
+.modern-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Action buttons */
+.action-btns {
+  display: flex;
+  gap: 8px;
+}
+
+/* Edit */
+.edit-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #38bdf8;
+  color: #020617;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.edit-btn:hover {
+  background: #0ea5e9;
+}
+
+/* Delete */
+.delete-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
