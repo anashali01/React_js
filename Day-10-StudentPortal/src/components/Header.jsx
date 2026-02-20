@@ -37,18 +37,7 @@ const Header = () => {
                 <i className="ti ti-dots nav-small-cap-icon fs-4" />
                 <span className="hide-menu">Students</span>
               </li>
-              <li className="sidebar-item">
-                <Link
-                  className="sidebar-link"
-                  to="/viewStudent"
-                  aria-expanded="false"
-                >
-                  <span>
-                    <i className="ti ti-cards" />
-                  </span>
-                  <span className="hide-menu">Card</span>
-                </Link>
-              </li>
+
               <li className="sidebar-item">
                 <Link
                   className="sidebar-link"
@@ -58,7 +47,43 @@ const Header = () => {
                   <span>
                     <i className="ti ti-file-description" />
                   </span>
-                  <span className="hide-menu">Forms</span>
+                  <span className="hide-menu">Add Student</span>
+                </Link>
+              </li>
+              <li className="sidebar-item">
+                <Link
+                  className="sidebar-link"
+                  to="/takeAttendance"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i className="ti ti-file-description" />
+                  </span>
+                  <span className="hide-menu">Take Attendance</span>
+                </Link>
+              </li>
+              <li className="sidebar-item">
+                <Link
+                  className="sidebar-link"
+                  to="/viewStudent"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i className="ti ti-cards" />
+                  </span>
+                  <span className="hide-menu">View Student</span>
+                </Link>
+              </li>
+              <li className="sidebar-item">
+                <Link
+                  className="sidebar-link"
+                  to="/viewAttendance"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i className="ti ti-cards" />
+                  </span>
+                  <span className="hide-menu">View Attendance</span>
                 </Link>
               </li>
               <li className="sidebar-item">

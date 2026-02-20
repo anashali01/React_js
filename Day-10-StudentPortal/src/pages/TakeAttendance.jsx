@@ -1,10 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
-import "../assets/ViewStudent.css";
 
-const ViewStudent = ({list , handleDelete , handleEdit}) => {
+const TakeAttendance = ({ list , setList}) => {
+
+  const [date , setDate] = useState("");
+  const [attendance , setAttendance] = useState({});
+
+  const handleAttendanceChange = (e , id) => {
+    const {value} = e.target;
+    setAttendance({...attendance , [id] : value })
+  }
+
+  const handleDateChange = (e) => {
+    setDate(e.target.value);
+  }
+
+  const handleSubmit = () => {
+    if(!date){
+      alert("Please Select Date");
+    }
+    const attendanceData = list.map((student) => {
+      let status = attendance[student.id];
+
+      if(!status) return student || "Attendance not marked";
+
+      return {
+        ...student,
+        attendance : {
+          ...student.attendance,
+          [date] : status
+        }
+      }
+      
+    })
+
+    setList(attendanceData);
+    setAttendance({});
+  }
+  console.log(list);
+  
   return (
-    <div>
+    <>
       <div
         className="page-wrapper"
         id="main-wrapper"
@@ -110,56 +146,59 @@ const ViewStudent = ({list , handleDelete , handleEdit}) => {
           {/*  Header End */}
           <div className="container-fluid">
             <div className="container-fluid">
-              <div className="card">
-                <div className="card-body">
-                  <div className="row">
-                    <h1 className="mb-4">Students Data</h1>
-                    {list.length === 0 && (
-                      <div className="col-12">
-                        <p className="text-muted">No students found.</p>
-                      </div>
-                    )}
-                    {list.map((std) => {
-                      const initials = (std.name || "").split(" ").map(n => n[0]).filter(Boolean).slice(0,2).join("").toUpperCase();
-                      
-
-                      return (
-                        <div className="col-md-4" key={std.id}>
-                          <div className="card student-card mb-4 border-0">
-                            <div className="card-banner" />
-                            <div className="student-avatar">{initials}</div>
-                            <div className="card-body student-content">
-                              <div className="student-actions">
-                                <button title="Edit" aria-label="Edit" onClick={() => handleEdit(std.id)} className="action-btn edit"><i className="ti ti-pencil" /></button>
-                                <button title="Delete" aria-label="Delete" onClick={()=>handleDelete(std.id)} className="action-btn delete"><i className="ti ti-trash" /></button>
-                              </div>
-
-                              <div className="student-meta mb-2">
-                                <h5>{std.name}</h5>
-                                <small>#{std.rollNo} • <span className="text-muted">{std.email}</span></small>
-                              </div>
-
-                              <div className="info">
-                                <p className="mb-1"><strong>Phone:</strong> {std.phoneNo}</p>
-                                <div className="d-flex justify-content-between align-items-center">
-                                  <span className="badge-course">{std.course}</span>
-                                  <small className="text-muted">Added</small>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
+              <div className="row justify-content-center">
+                <div className="col-md-12">
+                  <h1 className="table-caption">Student Attendance</h1>
+                  <div className="mb-3">
+                    <input
+                      type="date"
+                      className="form-control w-25"
+                      value={date || ""}
+                      onChange={handleDateChange}
+                    />
                   </div>
+
+                  <table className="table table-bordered table-striped text-center">
+                    <thead>
+                      <tr>
+                        <th>No.</th>
+                        <th>Student Name</th>
+                        <th>Course</th>
+                        <th>Attendance</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {list.map((student , idx) => {
+                        return (
+                          <tr>
+                            <td>{idx+1}</td>
+                            <td>{student.name}</td>
+                            <td>{student.course}</td>
+                            <td className="text-center">
+                              <select name="attendance" id="" value={attendance[student.id] || ""} onChange={(e) => handleAttendanceChange(e,student.id)}>
+                                <option value="">Select Status</option>
+                                <option value="Present">Present</option>
+                                <option value="Absent">Absent</option>
+                              </select>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                    <tfoot className="text-end" >
+                      <tr>
+                        <td colSpan={4}><button className="btn btn-primary" onClick={handleSubmit}>Mark Attendance</button></td>
+                      </tr>
+                    </tfoot>
+                  </table>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default ViewStudent;
+export default TakeAttendance;

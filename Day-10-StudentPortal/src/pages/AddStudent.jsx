@@ -141,7 +141,7 @@ const AddStudent = ({student , handleChange , handleSubmit}) => {
                           <input
                             type="text"
                             className="form-control"
-                            id="exampleInputEmail1"
+                            id="name"
                             aria-describedby="emailHelp"
                             name="name"
                             value={student.name || ''}
@@ -193,7 +193,7 @@ const AddStudent = ({student , handleChange , handleSubmit}) => {
                           <input
                             type="text"
                             className="form-control"
-                            id="exampleInputPassword1"
+                            id="course"
                             name="course"
                             value={student.course || ''}
                             onChange={handleChange}

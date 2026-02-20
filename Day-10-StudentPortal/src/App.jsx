@@ -3,22 +3,22 @@ import Home from "./components/Home";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import AddStudent from "./pages/AddStudent";
 import ViewStudent from "./pages/ViewStudent";
+import TakeAttendance from "./pages/TakeAttendance";
+import ViewAttendance from "./pages/ViewAttendance";
 
 const App = () => {
   const [student, setStudent] = useState({});
   const [list, setList] = useState([]);
   const navigate = useNavigate();
 
-  
-
   useEffect(() => {
     const storedList = JSON.parse(localStorage.getItem("list") || "[]");
     setList(storedList);
-  },[]);
+  }, []);
 
   useEffect(() => {
-    localStorage.setItem("list" , JSON.stringify(list));
-  },[list])
+    localStorage.setItem("list", JSON.stringify(list));
+  }, [list]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const App = () => {
     if (student.id) {
       let newList = list.map((std) => {
         if (std.id == student.id) {
-          navigate("/viewStudent")
+          navigate("/viewStudent");
           return student;
         }
         return std;
@@ -36,7 +36,7 @@ const App = () => {
     } else {
       const updatedList = [...list, { ...student, id: Date.now() }];
       setList(updatedList);
-      navigate('/viewStudent')
+      navigate("/viewStudent");
     }
     setStudent({});
   };
@@ -85,6 +85,14 @@ const App = () => {
               handleEdit={handleEdit}
             />
           }
+        />
+        <Route
+          path="/takeAttendance"
+          element={<TakeAttendance list={list} setList={setList} />}
+        />
+        <Route
+          path="/viewAttendance"
+          element={<ViewAttendance list={list} />}
         />
       </Routes>
     </div>

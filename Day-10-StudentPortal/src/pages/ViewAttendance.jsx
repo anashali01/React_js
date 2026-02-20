@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
-import "../assets/ViewStudent.css";
 
-const ViewStudent = ({list , handleDelete , handleEdit}) => {
+const ViewAttendance = ({ list }) => {
+  const [date, setDate] = useState("");
+
+  const handleDateChange = (e) => {
+    setDate(e.target.value);
+  };
   return (
-    <div>
+    <>
       <div
         className="page-wrapper"
         id="main-wrapper"
@@ -110,56 +114,68 @@ const ViewStudent = ({list , handleDelete , handleEdit}) => {
           {/*  Header End */}
           <div className="container-fluid">
             <div className="container-fluid">
-              <div className="card">
-                <div className="card-body">
-                  <div className="row">
-                    <h1 className="mb-4">Students Data</h1>
-                    {list.length === 0 && (
-                      <div className="col-12">
-                        <p className="text-muted">No students found.</p>
-                      </div>
-                    )}
-                    {list.map((std) => {
-                      const initials = (std.name || "").split(" ").map(n => n[0]).filter(Boolean).slice(0,2).join("").toUpperCase();
-                      
-
-                      return (
-                        <div className="col-md-4" key={std.id}>
-                          <div className="card student-card mb-4 border-0">
-                            <div className="card-banner" />
-                            <div className="student-avatar">{initials}</div>
-                            <div className="card-body student-content">
-                              <div className="student-actions">
-                                <button title="Edit" aria-label="Edit" onClick={() => handleEdit(std.id)} className="action-btn edit"><i className="ti ti-pencil" /></button>
-                                <button title="Delete" aria-label="Delete" onClick={()=>handleDelete(std.id)} className="action-btn delete"><i className="ti ti-trash" /></button>
-                              </div>
-
-                              <div className="student-meta mb-2">
-                                <h5>{std.name}</h5>
-                                <small>#{std.rollNo} • <span className="text-muted">{std.email}</span></small>
-                              </div>
-
-                              <div className="info">
-                                <p className="mb-1"><strong>Phone:</strong> {std.phoneNo}</p>
-                                <div className="d-flex justify-content-between align-items-center">
-                                  <span className="badge-course">{std.course}</span>
-                                  <small className="text-muted">Added</small>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
+              <div className="row justify-content-center">
+                <div className="col-md-12">
+                  <h1 className="table-caption mb-5">View Student Attendance</h1>
+                  <div className="mb-3">
+                    <input
+                      type="date"
+                      className="form-control w-25"
+                      value={date || ""}
+                      onChange={handleDateChange}
+                    />
                   </div>
+
+                  {date && (
+                    <table className="table table-bordered table-striped text-center">
+                      <thead>
+                        <tr>
+                          <th>No.</th>
+                          <th>Student Name</th>
+                          <th>Course</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {list.map((student, idx) => {
+                          const status =
+                            student.attendance?.[date] || "Not Marked";
+                          return (
+                            <tr key={student.id}>
+                              <td>{idx + 1}</td>
+                              <td>{student.name}</td>
+                              <td>{student.course}</td>
+                              <td>
+                                {status === "Present" && (
+                                  <span className="badge bg-success">
+                                    Present
+                                  </span>
+                                )}
+                                {status === "Absent" && (
+                                  <span className="badge bg-danger">
+                                    Absent{" "}
+                                  </span>
+                                )}
+                                {status === "Not Marked" && (
+                                  <span className="badge bg-secondary">
+                                    Not Marked
+                                  </span>
+                                )}
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default ViewStudent;
+export default ViewAttendance;
