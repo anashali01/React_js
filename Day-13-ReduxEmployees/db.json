@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": "26KznUgLyJf4Q0kfhySp0",
+      "username": "yash",
+      "email": "ybhakta@gmail.com",
+      "role": "user"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

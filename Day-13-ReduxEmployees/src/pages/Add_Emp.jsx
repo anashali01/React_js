@@ -1,79 +1,95 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  createEmployee,
+  updateEmployee,
+} from "../feature/employee/employeeSlicer";
 
 const Add_Emp = () => {
+  const [employee, setEmployee] = useState({});
+  const { editData } = useSelector((state) => state.employee);
+  const [list, setList] = useState([]);
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEmployee({ ...employee, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (editData.id) {
+      dispatch(updateEmployee(employee));
+    } else {
+      dispatch(createEmployee(employee));
+    }
+
+    setEmployee({});
+  };
+
+  useEffect(() => {
+    setEmployee(editData);
+  }, []);
   return (
     <div className="container">
-      <form className="row g-3">
+      <form className="row g-3" method="post" onSubmit={handleSubmit}>
         <div className="col-md-6">
           <label htmlFor="inputEmail4" className="form-label">
-            Email
+            Name
           </label>
-          <input type="email" className="form-control" id="inputEmail4" />
+          <input
+            type="text"
+            className="form-control"
+            name="name"
+            onChange={handleChange}
+            value={employee.name || ""}
+          />
         </div>
         <div className="col-md-6">
           <label htmlFor="inputPassword4" className="form-label">
-            Password
+            Email
           </label>
-          <input type="password" className="form-control" id="inputPassword4" />
+          <input
+            type="email"
+            className="form-control"
+            id="inputPassword4"
+            name="email"
+            onChange={handleChange}
+            value={employee.email || ""}
+          />
         </div>
         <div className="col-12">
           <label htmlFor="inputAddress" className="form-label">
-            Address
+            Department
           </label>
           <input
             type="text"
             className="form-control"
+            name="department"
             id="inputAddress"
-            placeholder="1234 Main St"
+            onChange={handleChange}
+            value={employee.department || ""}
           />
-        </div>
-        <div className="col-12">
-          <label htmlFor="inputAddress2" className="form-label">
-            Address 2
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="inputAddress2"
-            placeholder="Apartment, studio, or floor"
-          />
-        </div>
-        <div className="col-md-6">
-          <label htmlFor="inputCity" className="form-label">
-            City
-          </label>
-          <input type="text" className="form-control" id="inputCity" />
         </div>
         <div className="col-md-4">
           <label htmlFor="inputState" className="form-label">
-            State
+            Manager
           </label>
-          <select id="inputState" className="form-select">
-            <option selected>Choose...</option>
-            <option>...</option>
+          <select
+            id="inputState"
+            className="form-select"
+            name="manager"
+            onChange={handleChange}
+            value={employee.manager || ""}
+          >
+            <option>Choose...</option>
+            <option>Anashali</option>
           </select>
-        </div>
-        <div className="col-md-2">
-          <label htmlFor="inputZip" className="form-label">
-            Zip
-          </label>
-          <input type="text" className="form-control" id="inputZip" />
-        </div>
-        <div className="col-12">
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              id="gridCheck"
-            />
-            <label className="form-check-label" htmlFor="gridCheck">
-              Check me out
-            </label>
-          </div>
         </div>
         <div className="col-12">
           <button type="submit" className="btn btn-primary">
-            Sign in
+            Add Employee
           </button>
         </div>
       </form>
