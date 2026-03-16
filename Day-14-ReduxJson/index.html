@@ -1,0 +1,59 @@
+<button type="button" onclick="createUser()">Create</button>
+<button type="button" onclick="getAllUser()">GetAll</button>
+<button type="button" onclick="getUser()">GetUser</button>
+<button type="button" onclick="deleteUser()">Delete</button>
+<button type="button" onclick="updateUser()">UPDATE</button>
+
+<script>
+    const api_url = 'http://localhost:3000/users';
+
+    const createUser = async () => {
+        let res = await fetch(api_url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: "Jack", email: "jack@gmail.com", role: "user" })
+        })
+
+        let data = await res.json();
+        console.log(data);
+    }
+
+    const getAllUser = async () => {
+        let res = await fetch(api_url, {
+            method: 'GET'
+        })
+        let data = await res.json();
+        console.log(data);
+    }
+
+    const getUser = async () => {
+        let res = await fetch(api_url + '/a099', {
+            method: 'GET'
+        });
+        let data = await res.json();
+        console.log(data);
+    }
+
+    const deleteUser = async () => {
+        let res = await fetch(api_url + '/f585', {
+            method: 'DELETE'
+        })
+        let data = await res.json();
+        console.log(data);
+    }
+
+    const updateUser = async () => {
+        let res = await fetch(api_url + '/a099', {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: "jacky@gmail.com" })
+        })
+
+        let data = await res.json();
+        console.log(data);
+    }
+</script>

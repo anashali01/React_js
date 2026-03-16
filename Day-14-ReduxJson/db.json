@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "name": "alex",
+      "email": "alex@gmail.com",
+      "password": "1234",
+      "role": "admin",
+      "id": "e578"
+    },
+    {
+      "name": "janny",
+      "email": "janny@gmail.com",
+      "password": "1234",
+      "role": "user",
+      "id": "9a1d"
+    },
+    {
+      "name": "kile",
+      "email": "kile@gmail.com",
+      "password": "1234",
+      "role": "user",
+      "id": "288b"
+    },
+    {
+      "id": "a099",
+      "name": "Jack",
+      "email": "jacky@gmail.com",
+      "role": "user"
+    },
+    {
+      "id": "035b",
+      "name": "Jack",
+      "email": "jack@gmail.com",
+      "role": "user"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

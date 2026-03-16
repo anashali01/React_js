@@ -1,0 +1,9 @@
+{
+  "todos": [
+    {
+      "id": "9438",
+      "text": "Aliqua Ratione nost"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
