@@ -1,0 +1,17 @@
+{
+  "user": [
+    {
+      "id": "045d",
+      "username": "by",
+      "email": "vygelihoxo@mailinator.com",
+      "password": "Pa$$w0rd!"
+    },
+    {
+      "id": "b5a6",
+      "username": "mim",
+      "email": "wuladete@mailinator.com",
+      "password": "Pa$$w0rd!"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

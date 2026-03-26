@@ -1,16 +1,44 @@
-# React + Vite
+# Redux Employees (Vite + React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern employee & task management app built with React, Redux Toolkit, and `json-server`. Users can log in using **email + PIN**, and the UI shows **role-based pages** (admin vs employee). Employees see **only their assigned tasks**.
 
-Currently, two official plugins are available:
+## Output
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Output](./output.svg)
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React (Vite)
+- Redux Toolkit
+- React Router
+- Axios
+- json-server (fake backend)
+- Bootstrap UI
 
-## Expanding the ESLint configuration
+## Fast Setup (Run Locally)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Install dependencies
+   - `bun install` (fast) or `npm install`
+2. Start the backend (json-server)
+   - `npx json-server --watch db.json --port 3000`
+3. Start the frontend
+   - `bun run dev` or `npm run dev`
+
+Open the app at the Vite URL (usually `http://localhost:5173`).
+
+## Login Details
+
+Login validates credentials from `db.json` by matching:
+- `email` + `pin`
+
+Sample users:
+- Admin: `qeqalico@mailinator.com` / `Pa$$w0rd`
+- Employee: `wefawuke@mailinator.com` / `Pa$$w0rd!`
+
+## Features
+
+- Async login flow (Redux async thunk)
+- Role-based routing (admin dashboard vs employee tasks)
+- Fetch employees and tasks from `json-server`
+- Employee task filtering by `employeeId`
+

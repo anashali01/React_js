@@ -48,6 +48,11 @@ const Header = () => {
                       View Employee
                     </Link>
                   </li>
+                  <li>
+                    <Link className="dropdown-item" to="/assign-task">
+                      Assign Task
+                    </Link>
+                  </li>
                 </ul>
               </li>
             </ul>

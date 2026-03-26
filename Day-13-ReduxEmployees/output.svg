@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="45%" stop-color="#2b4b7c"/>
+      <stop offset="100%" stop-color="#dbe7ff"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.98"/>
+      <stop offset="100%" stop-color="#f2f6ff" stop-opacity="0.98"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+    <style>
+      .t { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+      .title { font-size: 22px; font-weight: 700; fill: #0f172a; }
+      .sub { font-size: 14px; font-weight: 600; fill: #334155; }
+      .muted { font-size: 13px; fill: #64748b; }
+      .badge { font-size: 13px; font-weight: 700; fill: #0f172a; opacity: 0.95; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bg)"/>
+
+  <!-- App frame -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="60" rx="18" ry="18" width="1040" height="555" fill="#ffffff" opacity="0.92"/>
+  </g>
+
+  <!-- Top bar -->
+  <rect x="110" y="90" rx="14" ry="14" width="980" height="64" fill="#0b1220" opacity="0.9"/>
+  <text x="145" y="132" class="t title" fill="#e5e7eb">Redux Employees</text>
+  <circle cx="1040" cy="122" r="14" fill="#93c5fd" opacity="0.25"/>
+  <circle cx="1070" cy="122" r="14" fill="#a7f3d0" opacity="0.25"/>
+
+  <!-- Sidebar -->
+  <rect x="110" y="170" rx="14" ry="14" width="220" height="425" fill="#f8fafc" opacity="0.95"/>
+  <text x="145" y="222" class="t sub">Overview</text>
+  <text x="145" y="260" class="t muted">Projects</text>
+  <text x="145" y="298" class="t muted">Reports</text>
+  <text x="145" y="336" class="t muted">Team</text>
+  <text x="145" y="374" class="t muted">Settings</text>
+
+  <!-- Main card -->
+  <rect x="350" y="190" rx="16" ry="16" width="760" height="385" fill="url(#card)" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="385" y="242" class="t title">My Tasks</text>
+
+  <!-- Row 1 -->
+  <rect x="385" y="270" rx="12" ry="12" width="690" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="400" y="292" rx="8" ry="8" width="92" height="28" fill="#93c5fd" opacity="0.55"/>
+  <text x="418" y="312" class="t badge">Pending</text>
+  <text x="520" y="312" class="t sub" fill="#0f172a">Update Project Proposal</text>
+  <text x="760" y="312" class="t muted">Assigned to: Alice</text>
+
+  <!-- Row 2 -->
+  <rect x="385" y="350" rx="12" ry="12" width="690" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="400" y="372" rx="8" ry="8" width="92" height="28" fill="#86efac" opacity="0.55"/>
+  <text x="418" y="392" class="t badge">Complete</text>
+  <text x="520" y="392" class="t sub" fill="#0f172a">Client Meeting Preparation</text>
+  <text x="760" y="392" class="t muted">Assigned to: Bob</text>
+
+  <!-- Row 3 -->
+  <rect x="385" y="430" rx="12" ry="12" width="690" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="400" y="452" rx="8" ry="8" width="92" height="28" fill="#93c5fd" opacity="0.55"/>
+  <text x="418" y="472" class="t badge">Pending</text>
+  <text x="520" y="472" class="t sub" fill="#0f172a">Review Quarterly Budget</text>
+  <text x="760" y="472" class="t muted">Assigned to: Charlie</text>
+
+  <!-- Footer hint -->
+  <text x="385" y="585" class="t muted">Login (email + PIN) -> Redux state -> role-based pages -> tasks filtering</text>
+</svg>
+

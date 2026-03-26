@@ -1,10 +1,82 @@
 {
-  "users": [
+  "employees": [
     {
-      "id": "26KznUgLyJf4Q0kfhySp0",
-      "username": "yash",
-      "email": "ybhakta@gmail.com",
-      "role": "user"
+      "id": "OwGP1X8MMwM41BjZ7HQp9",
+      "name": "Adrian Gomez",
+      "email": "qeqalico@mailinator.com",
+      "pin": "Pa$$w0rd",
+      "department": "Nemo quae sequi sit ",
+      "role": "admin"
+    },
+    {
+      "id": "j-9DaqH4IPfOgV61BsReM",
+      "name": "Rhiannon Galloway",
+      "email": "wefawuke@mailinator.com",
+      "pin": "Pa$$w0rd!",
+      "department": "Eveniet deserunt at",
+      "role": "employee"
+    },
+    {
+      "id": "NqHWyHK1HgJTx-q8mPS_J",
+      "name": "Selma Snyder",
+      "email": "wudyzyfisi@mailinator.com",
+      "pin": "Pa$$w0rd!",
+      "department": "Eiusmod laboriosam ",
+      "role": "employee"
+    },
+    {
+      "id": "Fn1ITAmNzeMwB8aAhfKyP",
+      "name": "Bruno Conley",
+      "email": "suzunejylo@mailinator.com",
+      "pin": "Pa$$w0rd!",
+      "department": "A nostrum in aut por",
+      "role": "employee"
+    },
+    {
+      "id": "PxKPukuoh4mkG2zrnafHM",
+      "name": "Anashali",
+      "email": "anashali@gmail.com",
+      "pin": "1234",
+      "department": "Fsd",
+      "role": "admin"
+    },
+    {
+      "id": "NnOo8S5vmo2sjYGWRDIym",
+      "name": "yash",
+      "email": "y@gmail.com",
+      "pin": "1234",
+      "department": "aaa",
+      "role": "employee"
+    }
+  ],
+  "task": [
+    {
+      "id": "cb76",
+      "name": "Sade Wise",
+      "employeeId": "NnOo8S5vmo2sjYGWRDIym",
+      "priority": "low",
+      "status": "Complete"
+    },
+    {
+      "id": "7685",
+      "name": "Emmanuel Paul",
+      "employeeId": "NnOo8S5vmo2sjYGWRDIym",
+      "priority": "High",
+      "status": "Complete"
+    },
+    {
+      "id": "4489",
+      "name": "Jeanette Downs",
+      "employeeId": "NqHWyHK1HgJTx-q8mPS_J",
+      "priority": "Low",
+      "status": "Complete"
+    },
+    {
+      "id": "2b23",
+      "name": "Wyoming Meyer",
+      "employeeId": "NnOo8S5vmo2sjYGWRDIym",
+      "priority": "High",
+      "status": "Complete"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
